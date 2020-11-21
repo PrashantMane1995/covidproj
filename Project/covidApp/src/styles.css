@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "../node_modules/ag-grid-community/dist/styles/ag-grid.css";
+@import "../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css";
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+mat-toolbar
+{
+    background: linear-gradient(141deg, #4492d6, #082e54 75%) !important;
+    color: white !important;
+}
+
+.menu
+{
+    float:right;
+}
+
+ag-grid-angular
+{
+ width: inherit; height: 900px;
+}
+

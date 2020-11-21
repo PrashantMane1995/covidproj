@@ -1,0 +1,113 @@
+
+<nav aria-label="breadcrumb">   
+    
+    <ol class="breadcrumb">
+        
+      <li class="breadcrumb-item"><a href="/"><i class="fa fa-home text-primary icon"  ml-5></i></a></li>
+      <li class="breadcrumb-item country-item"*ngIf="isRowSelected" aria-current="page">{{country}} </li>  
+    </ol>
+    </nav>
+    <div class=" row container-fluid mt-5">
+    <div class= " card shadow col-sm-3 mb-5">
+        <div class="mb-2 overview">
+          <h3 class="text-center mt-3 ">   Overview </h3>
+        </div>
+           <div class="mt-2 overview">
+            <h3 class="text-center">Global</h3>
+           </div>
+           
+    </div>
+    <div class=" card shadow col-sm-3 mb-5 confirmed">
+        <div class="text-center mt-4">
+            {{confirmed}}
+        </div>
+        <div class="row head-confirmed ">
+            <div class="col-sm-12 mt-2 mb-2 text-center">
+                Confirmed
+            </div>
+           
+            </div>
+    </div>
+    <div class="card shadow col-sm-3 mb-5 death">
+        <div  class="text-center mt-4">
+            {{deaths}}
+        </div>
+        <div class="row head-death">
+            <div class="col-sm-12 mt-2 mb-2 text-center">
+            Death
+            </div>
+            </div>
+    </div>
+    <div class="card shadow col-sm-3 mb-5 recovered">
+        <div  class="text-center mt-4">
+            {{recovered}}
+        </div>
+        <div class="row head-recovered">
+            <div class="col-sm-12 mt-2 mb-2 text-center">
+            Recovered
+        </div>
+            </div>
+    </div>
+    </div>
+
+    <div class="card ">
+        <div class="row">
+            <div class="col-md-12 ml-2 mr-5 "*ngIf="!isRowSelected">
+    <ag-grid-angular 
+    
+    class="ag-theme-alpine"
+    [rowData]="userArry"
+    [columnDefs]="columnDefs"
+    [suppressRowDeselection]="true"
+    [rowSelection]="rowSelection" 
+    [rowGroupPanelShow]="rowGroupPanelShow"
+     [pivotPanelShow]="pivotPanelShow"
+      [enableRangeSelection]="true" 
+      (selectionChanged)="onSelectionChanged($event)"
+      (gridReady)="onGridReady($event)"
+>
+</ag-grid-angular>
+</div>
+</div>
+<div class="text-center mb-3 container-fluid" *ngIf="isRowSelected">
+    <div class="mb-2 mt-3  ">
+        <h3 class="country"> {{country}} Overview </h3>
+      </div>
+    <div class="col-md-12 mt-5 mb-5 card country-data " >
+
+    
+      <div class="row mb-5 mt-5">
+          
+          <div class="col data">
+            {{confirmed}}
+        </div>
+        <div class="col data ">
+            {{recovered}}
+        </div>
+        <div class="col data">
+            {{deaths}}
+        </div>
+        <div class="col data ">
+            {{newConfirmed}}
+        </div>
+        <div class="col data ">
+            {{newRecovered}}
+        </div>
+        <div class="col data">
+            {{newDeaths}}
+        </div>
+        <div class="w-100 mb-3"></div>
+  <div class="col data-header">Total Confirmed</div>
+  <div class="col data-header">Total Recovered</div>
+  <div class="col data-header">Total Deaths</div>
+  <div class="col data-header">New Confirmed</div>
+  <div class="col data-header ">New Recovered</div>
+  <div class="col data-header">New Deaths</div>
+          
+      </div>
+</div>
+</div>
+
+    </div>
+
+   
